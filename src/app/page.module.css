@@ -1,10 +1,32 @@
+.flex {
+  display: flex;
+}
+
+.links {
+  margin-right: 15px;
+  list-style: none;
+}
+
+.loginLink {
+  margin-bottom: 15px;
+}
+
+.loginLink:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .main {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   padding: 6rem;
   min-height: 100vh;
+}
+
+.main h1 {
+  margin-bottom: 10px;
 }
 
 .description {
