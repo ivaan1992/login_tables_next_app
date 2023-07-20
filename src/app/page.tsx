@@ -1,12 +1,12 @@
-import Image from 'next/image'
-import styles from './page.module.css'
-import Login from '@/components/login'
+"use client";
 
-export default function Home() {
+import { signOut } from "next-auth/react";
+
+export default function Index() {
   return (
-    <main className={styles.main}>
-        <h1>Welcome</h1>
-        <Login />
-    </main>
-  )
+    <>
+      <h1>HOLA MUNDO</h1>
+      <button onClick={() => signOut()}>logout</button>
+    </>
+  );
 }
