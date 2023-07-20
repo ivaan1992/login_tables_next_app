@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@next-auth/prisma-adapter": "^0.4.4-canary.81",
+    "@prisma/client": "^5.0.0",
     "@types/node": "20.4.2",
     "@types/react": "18.2.15",
     "@types/react-dom": "18.2.7",
@@ -21,5 +23,8 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "5.1.6"
+  },
+  "devDependencies": {
+    "prisma": "^5.0.0"
   }
 }
