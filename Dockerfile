@@ -12,6 +12,6 @@ RUN npm install
 
 # Generate prisma
 RUN npx prisma generate
-
+ 
 # Set the command to run when the container starts
 CMD ["/bin/sh", "-c", "npm run dev"]
