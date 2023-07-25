@@ -4,7 +4,6 @@ import { type NextAuthOptions } from 'next-auth';
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import GitHubProvider from "next-auth/providers/github";
 
-
 export const authOptions: NextAuthOptions = {
     callbacks: {
       session: ({ session }) => ({
@@ -27,19 +26,24 @@ export const authOptions: NextAuthOptions = {
             placeholder: "Password",
           },
         },
-        async authorize(credentials) {
-          const user = await prisma.user.findFirst({
-            where: {
-              username: credentials?.username,
-            },
-          });
-  
-          if (user && user.password == credentials?.password) {
-            return user as any;
+       
+          async authorize(credentials: any) {
+            try {
+              const user = await prisma.user.findFirst({
+                where: {
+                  name: credentials?.username,
+                },
+              });
+            
+              if (user && user.password == credentials?.password) {
+                return user as any;
+              }
+
+              return null;
+            } catch (error: any) {
+              console.log(error);
+            }
           }
-  
-          return null;
-        },
       }),
     ],
     session: {
@@ -50,4 +54,7 @@ export const authOptions: NextAuthOptions = {
 
     }
 
-  };
+};
+
+
+
